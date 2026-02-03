@@ -1,0 +1,244 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une Agence{% endblock %}
+{% block page_title %}Nouvelle Agence{% endblock %}
+{% block breadcrumb %}<a href="{{ path('app_dashboard') }}">Dashboard</a> / <a href="{{ path('app_agence_index') }}">Agences</a> / <span class="active">Nouvelle</span>{% endblock %}
+
+{% block body %}
+    <div class="content-card">
+        <div class="card-header">
+            <h3><i class="fas fa-plus-circle me-2"></i>Ajouter une agence</h3>
+            <a href="{{ path('app_agence_index') }}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i> Retour
+            </a>
+        </div>
+        
+        <form id="agenceForm" class="mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-4">
+                        <label for="nom" class="form-label fw-bold">
+                            <i class="fas fa-building me-2"></i>Nom de l'agence *
+                        </label>
+                        <input type="text" class="form-control" id="nom" required 
+                               placeholder="Ex: Agence Zitouna Tunis Centre">
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <label for="banque" class="form-label fw-bold">
+                            <i class="fas fa-landmark me-2"></i>Banque *
+                        </label>
+                        <select class="form-select" id="banque" required>
+                            <option value="">Sélectionner une banque</option>
+                            <option value="1">Banque Zitouna</option>
+                            <option value="2">Amen Bank</option>
+                            <option value="3">BIAT</option>
+                            <option value="4">UBCI</option>
+                            <option value="5">ATB</option>
+                            <option value="6">Banque de Tunisie</option>
+                            <option value="7">Wifak Bank</option>
+                            <option value="8">BNA</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <label for="type_agence" class="form-label fw-bold">
+                            <i class="fas fa-tag me-2"></i>Type d'agence *
+                        </label>
+                        <select class="form-select" id="type_agence" required>
+                            <option value="">Sélectionner un type</option>
+                            <option value="principale">Principale</option>
+                            <option value="secondaire">Secondaire</option>
+                            <option value="regionale">Régionale</option>
+                            <option value="succursale">Succursale</option>
+                            <option value="siege">Siège social</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="form-group mb-4">
+                        <label for="statut" class="form-label fw-bold">
+                            <i class="fas fa-circle me-2"></i>Statut *
+                        </label>
+                        <select class="form-select" id="statut" required>
+                            <option value="">Sélectionner un statut</option>
+                            <option value="actif">Actif</option>
+                            <option value="en_attente">En attente</option>
+                            <option value="inactif">Inactif</option>
+                            <option value="en_maintenance">En maintenance</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <label for="telephone" class="form-label fw-bold">
+                            <i class="fas fa-phone me-2"></i>Téléphone *
+                        </label>
+                        <input type="tel" class="form-control" id="telephone" required 
+                               placeholder="Ex: +216 70 100 101">
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <label for="email" class="form-label fw-bold">
+                            <i class="fas fa-envelope me-2"></i>Email
+                        </label>
+                        <input type="email" class="form-control" id="email" 
+                               placeholder="Ex: agence.tunis@banque.com">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-4">
+                        <label for="adresse" class="form-label fw-bold">
+                            <i class="fas fa-map-marker-alt me-2"></i>Adresse *
+                        </label>
+                        <textarea class="form-control" id="adresse" rows="3" required 
+                                  placeholder="Adresse complète de l'agence"></textarea>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-4">
+                                <label for="ville" class="form-label fw-bold">
+                                    <i class="fas fa-city me-2"></i>Ville *
+                                </label>
+                                <input type="text" class="form-control" id="ville" required 
+                                       placeholder="Ex: Tunis">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-4">
+                                <label for="code_postal" class="form-label fw-bold">
+                                    <i class="fas fa-mail-bulk me-2"></i>Code Postal
+                                </label>
+                                <input type="text" class="form-control" id="code_postal" 
+                                       placeholder="Ex: 1000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="form-group mb-4">
+                        <label class="form-label fw-bold">
+                            <i class="fas fa-clock me-2"></i>Horaires d'ouverture *
+                        </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="heure_ouverture" class="form-label small">Heure d'ouverture</label>
+                                <input type="time" class="form-control" id="heure_ouverture" required value="08:00">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="heure_fermeture" class="form-label small">Heure de fermeture</label>
+                                <input type="time" class="form-control" id="heure_fermeture" required value="17:00">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <label class="form-label fw-bold">
+                            <i class="fas fa-coffee me-2"></i>Pause déjeuner
+                        </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="debut_pause" class="form-label small">Début de pause</label>
+                                <input type="time" class="form-control" id="debut_pause" value="12:00">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="fin_pause" class="form-label small">Fin de pause</label>
+                                <input type="time" class="form-control" id="fin_pause" value="13:00">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-4">
+                        <label for="responsable" class="form-label fw-bold">
+                            <i class="fas fa-user-tie me-2"></i>Responsable *
+                        </label>
+                        <input type="text" class="form-control" id="responsable" required 
+                               placeholder="Nom du responsable de l'agence">
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="form-group mb-4">
+                        <label for="tel_responsable" class="form-label fw-bold">
+                            <i class="fas fa-mobile-alt me-2"></i>Téléphone du responsable
+                        </label>
+                        <input type="tel" class="form-control" id="tel_responsable" 
+                               placeholder="+216 XX XXX XXX">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION SERVICES SUPPRIMÉE -->
+            
+            <div class="form-group mb-4">
+                <label for="description" class="form-label fw-bold">
+                    <i class="fas fa-file-alt me-2"></i>Description
+                </label>
+                <textarea class="form-control" id="description" rows="3" 
+                          placeholder="Description de l'agence, équipements disponibles, etc."></textarea>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="d-flex justify-content-between">
+                <a href="{{ path('app_agence_index') }}" class="btn btn-outline-secondary px-5">
+                    <i class="fas fa-times me-2"></i> Annuler
+                </a>
+                <button type="submit" class="btn btn-primary px-5">
+                    <i class="fas fa-plus me-2"></i> Ajouter l'agence
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <style>
+        .form-check {
+            margin-bottom: 10px;
+        }
+        
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+            margin-top: 0.3em;
+        }
+        
+        .form-check-label {
+            margin-left: 8px;
+            font-weight: 500;
+        }
+    </style>
+    
+    <script>
+        document.getElementById('agenceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validation simple
+            const nom = document.getElementById('nom').value;
+            const banque = document.getElementById('banque').value;
+            const telephone = document.getElementById('telephone').value;
+            const adresse = document.getElementById('adresse').value;
+            
+            if (!nom || !banque || !telephone || !adresse) {
+                alert('Veuillez remplir tous les champs obligatoires (*)');
+                return;
+            }
+            
+            // Simulation d'ajout
+            alert('Agence ajoutée avec succès! (Simulation)');
+            
+            // Redirection vers la liste des agences
+            setTimeout(() => {
+                window.location.href = "{{ path('app_agence_index') }}";
+            }, 1000);
+        });
+    </script>
+{% endblock %}

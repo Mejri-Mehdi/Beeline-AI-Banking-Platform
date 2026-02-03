@@ -1,0 +1,247 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'Agence{% endblock %}
+{% block page_title %}Détails de l'Agence{% endblock %}
+{% block breadcrumb %}<a href="{{ path('app_dashboard') }}">Dashboard</a> / <a href="{{ path('app_agence_index') }}">Agences</a> / <span class="active">Détails</span>{% endblock %}
+
+{% block body %}
+    <div class="content-card">
+        <div class="card-header">
+            <h3><i class="fas fa-info-circle me-2"></i>Détails de l'agence</h3>
+            <div class="d-flex gap-2">
+                <a href="{{ path('app_agence_index') }}" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-2"></i> Retour
+                </a>
+                <a href="{{ path('app_agence_edit', {'id': agence.id}) }}" class="btn btn-outline-success">
+                    <i class="fas fa-edit me-2"></i> Modifier
+                </a>
+            </div>
+        </div>
+        
+        <!-- En-tête avec informations principales -->
+        <div class="bank-header mb-5">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center">
+                    <div class="bank-logo-display">
+                        <i class="fas fa-store-alt"></i>
+                        <h5 class="mt-3">{{ agence.nom }}</h5>
+                        <span class="badge" style="background: #4f46e5;">{{ agence.banque_nom }}</span>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="info-item">
+                                <span class="info-label"><i class="fas fa-tag me-2"></i>Type</span>
+                                <span class="info-value">{{ agence.type_agence|capitalize }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-item">
+                                <span class="info-label"><i class="fas fa-circle me-2"></i>Statut</span>
+                                <span class="info-value badge bg-success">{{ agence.statut }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-item">
+                                <span class="info-label"><i class="fas fa-clock me-2"></i>Horaires</span>
+                                <span class="info-value">{{ agence.heure_ouverture }} - {{ agence.heure_fermeture }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Informations détaillées -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="detail-section mb-4">
+                    <h5 class="section-title"><i class="fas fa-info-circle me-2"></i>Informations Générales</h5>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Téléphone</span>
+                            <span class="detail-value">{{ agence.telephone }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Email</span>
+                            <span class="detail-value">{{ agence.email }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Adresse</span>
+                            <span class="detail-value">{{ agence.adresse }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Ville</span>
+                            <span class="detail-value">{{ agence.ville }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Code Postal</span>
+                            <span class="detail-value">{{ agence.code_postal }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="detail-section mb-4">
+                    <h5 class="section-title"><i class="fas fa-user-tie me-2"></i>Responsable</h5>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Nom du responsable</span>
+                            <span class="detail-value">{{ agence.responsable }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Téléphone responsable</span>
+                            <span class="detail-value">{{ agence.tel_responsable }}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-section mb-4">
+                    <h5 class="section-title"><i class="fas fa-clock me-2"></i>Horaires</h5>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Heure d'ouverture</span>
+                            <span class="detail-value">{{ agence.heure_ouverture }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Heure de fermeture</span>
+                            <span class="detail-value">{{ agence.heure_fermeture }}</span>
+                        </div>
+                        {% if agence.debut_pause %}
+                        <div class="detail-item">
+                            <span class="detail-label">Pause déjeuner</span>
+                            <span class="detail-value">{{ agence.debut_pause }} - {{ agence.fin_pause }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Description -->
+        <div class="detail-section">
+            <h5 class="section-title"><i class="fas fa-file-alt me-2"></i>Description</h5>
+            <div class="description-content">
+                <p>{{ agence.description }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .bank-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .bank-logo-display {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 2px solid #4f46e5;
+        }
+        
+        .bank-logo-display i {
+            font-size: 60px;
+            color: #4f46e5;
+        }
+        
+        .bank-logo-display h5 {
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        .bank-logo-display .badge {
+            font-size: 14px;
+            padding: 5px 15px;
+        }
+        
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .info-label {
+            display: block;
+            font-size: 12px;
+            color: #6c757d;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #212529;
+        }
+        
+        .detail-section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            height: 100%;
+        }
+        
+        .section-title {
+            color: #4f46e5;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        
+        .detail-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            font-weight: 500;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .detail-value {
+            font-weight: 600;
+            color: #212529;
+            text-align: right;
+        }
+        
+        .description-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.6;
+            color: #495057;
+        }
+        
+        .badge {
+            padding: 5px 12px;
+            font-weight: 600;
+        }
+    </style>
+{% endblock %}

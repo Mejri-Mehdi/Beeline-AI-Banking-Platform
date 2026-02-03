@@ -1,0 +1,228 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Agences{% endblock %}
+{% block page_title %}Agences{% endblock %}
+{% block breadcrumb %}<a href="{{ path('app_dashboard') }}">Dashboard</a> / <span class="active">Agences</span>{% endblock %}
+
+{% block body %}
+    <div class="content-card">
+        <div class="card-header">
+            <h3>Liste des agences</h3>
+            <div class="d-flex gap-3 align-items-center">
+                <div class="input-group" style="width: 250px;">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Rechercher...">
+                </div>
+                <select id="filterBanque" class="form-select" style="width: 200px;">
+                    <option value="">Toutes les banques</option>
+                    <option value="1">Banque Zitouna</option>
+                    <option value="2">Amen Bank</option>
+                    <option value="3">BIAT</option>
+                    <option value="4">UBCI</option>
+                    <option value="5">ATB</option>
+                    <option value="6">Banque de Tunisie</option>
+                    <option value="7">Wifak Bank</option>
+                    <option value="8">BNA</option>
+                </select>
+                <a href="{{ path('app_agence_new') }}" class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i> Nouvelle agence
+                </a>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Banque</th>
+                        <th>Adresse</th>
+                        <th>Horaires</th>
+                        <th>Téléphone</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Agence 1 -->
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <strong>Agence Zitouna Tunis Centre</strong>
+                            <div class="text-muted small">Principal</div>
+                        </td>
+                        <td>
+                            <span class="badge" style="background: #4f46e5;">Banque Zitouna</span>
+                        </td>
+                        <td>Avenue Habib Bourguiba, Tunis</td>
+                        <td>08:00-17:00</td>
+                        <td>70 100 101</td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <button class="btn btn-outline-primary" title="Voir" onclick="showAgenceDetails(1)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="{{ path('app_agence_edit', {'id': 1}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteAgence(1, 'Agence Zitouna Tunis Centre')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Agence 2 -->
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <strong>Agence Zitouna La Marsa</strong>
+                            <div class="text-muted small">Secondaire</div>
+                        </td>
+                        <td>
+                            <span class="badge" style="background: #4f46e5;">Banque Zitouna</span>
+                        </td>
+                        <td>La Marsa, Tunis</td>
+                        <td>08:00-17:00</td>
+                        <td>70 100 102</td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <button class="btn btn-outline-primary" title="Voir" onclick="showAgenceDetails(2)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="{{ path('app_agence_edit', {'id': 2}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteAgence(2, 'Agence Zitouna La Marsa')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Agence 3 -->
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <strong>Agence Zitouna Sousse</strong>
+                            <div class="text-muted small">Régionale</div>
+                        </td>
+                        <td>
+                            <span class="badge" style="background: #4f46e5;">Banque Zitouna</span>
+                        </td>
+                        <td>Rue Habib Thameur, Sousse</td>
+                        <td>08:00-16:00</td>
+                        <td>73 100 103</td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <button class="btn btn-outline-primary" title="Voir" onclick="showAgenceDetails(3)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="{{ path('app_agence_edit', {'id': 3}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteAgence(3, 'Agence Zitouna Sousse')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Agence 4 -->
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <strong>Agence Amen Bank Tunis</strong>
+                            <div class="text-muted small">Siège social</div>
+                        </td>
+                        <td>
+                            <span class="badge" style="background: #10b981;">Amen Bank</span>
+                        </td>
+                        <td>Avenue de la Liberté, Tunis</td>
+                        <td>08:00-17:00</td>
+                        <td>70 101 001</td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <button class="btn btn-outline-primary" title="Voir" onclick="showAgenceDetails(4)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="{{ path('app_agence_edit', {'id': 4}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteAgence(4, 'Agence Amen Bank Tunis')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Ajoutez les autres agences ici avec le même pattern -->
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        <nav class="mt-3">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Précédent</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Suivant</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <script>
+        document.getElementById('filterBanque').addEventListener('change', function() {
+            const banqueId = this.value;
+            if (banqueId) {
+                alert('Filtrage par banque: ' + this.options[this.selectedIndex].text);
+            }
+        });
+        
+        // Fonction pour afficher les détails d'une agence
+        function showAgenceDetails(id) {
+            const agences = {
+                1: {nom: "Agence Zitouna Tunis Centre", banque: "Banque Zitouna", adresse: "Avenue Habib Bourguiba, Tunis", horaires: "08:00-17:00", tel: "70 100 101", statut: "Actif"},
+                2: {nom: "Agence Zitouna La Marsa", banque: "Banque Zitouna", adresse: "La Marsa, Tunis", horaires: "08:00-17:00", tel: "70 100 102", statut: "Actif"},
+                3: {nom: "Agence Zitouna Sousse", banque: "Banque Zitouna", adresse: "Rue Habib Thameur, Sousse", horaires: "08:00-16:00", tel: "73 100 103", statut: "Actif"},
+                4: {nom: "Agence Amen Bank Tunis", banque: "Amen Bank", adresse: "Avenue de la Liberté, Tunis", horaires: "08:00-17:00", tel: "70 101 001", statut: "Actif"}
+            };
+            
+            const agence = agences[id];
+            if (agence) {
+                const message = `
+                Détails de l'agence:
+                
+                Nom: ${agence.nom}
+                Banque: ${agence.banque}
+                Adresse: ${agence.adresse}
+                Horaires: ${agence.horaires}
+                Téléphone: ${agence.tel}
+                Statut: ${agence.statut}
+                `;
+                alert(message);
+            }
+        }
+        
+        // Fonction pour supprimer une agence
+        function deleteAgence(id, nom) {
+            if (confirm(`Êtes-vous sûr de vouloir supprimer l'agence "${nom}" (ID: ${id})?`)) {
+                alert(`Agence "${nom}" supprimée (simulation)`);
+                // En production : requête AJAX pour suppression
+            }
+        }
+    </script>
+{% endblock %}

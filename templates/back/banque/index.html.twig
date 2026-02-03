@@ -1,0 +1,281 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Banques{% endblock %}
+{% block page_title %}Banques{% endblock %}
+{% block breadcrumb %}<a href="{{ path('app_dashboard') }}">Dashboard</a> / <span class="active">Banques</span>{% endblock %}
+
+{% block body %}
+    <div class="content-card">
+        <div class="card-header">
+            <h3>Liste des banques</h3>
+            <div class="d-flex gap-3 align-items-center">
+                <div class="input-group" style="width: 250px;">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Rechercher...">
+                </div>
+                <a href="{{ path('app_banque_new') }}" class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i> Nouvelle banque
+                </a>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Site Web</th>
+                        <th>Téléphone</th>
+                        <th>Email</th>
+                        <th>Agences</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Banque Zitouna -->
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <strong>Banque Zitouna</strong>
+                            <div class="text-muted small">Tunis Centre</div>
+                        </td>
+                        <td>www.banquezitouna.com</td>
+                        <td>70 100 100</td>
+                        <td>contact@banquezitouna.com</td>
+                        <td><span class="badge bg-primary">5 agences</span></td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_banque_show', {'id': 1}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_banque_edit', {'id': 1}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteBanque(1, 'Banque Zitouna')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Amen Bank -->
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <strong>Amen Bank</strong>
+                            <div class="text-muted small">Tunis</div>
+                        </td>
+                        <td>www.amenbank.com.tn</td>
+                        <td>70 101 000</td>
+                        <td>info@amenbank.com.tn</td>
+                        <td><span class="badge bg-success">4 agences</span></td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_banque_show', {'id': 2}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_banque_edit', {'id': 2}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteBanque(2, 'Amen Bank')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- BIAT -->
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <strong>BIAT</strong>
+                            <div class="text-muted small">Tunis</div>
+                        </td>
+                        <td>www.biat.com.tn</td>
+                        <td>71 100 100</td>
+                        <td>contact@biat.com.tn</td>
+                        <td><span class="badge bg-warning text-dark">6 agences</span></td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_banque_show', {'id': 3}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_banque_edit', {'id': 3}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteBanque(3, 'BIAT')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- UBCI -->
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <strong>UBCI</strong>
+                            <div class="text-muted small">Tunis</div>
+                        </td>
+                        <td>www.ubci.tn</td>
+                        <td>71 140 000</td>
+                        <td>info@ubci.tn</td>
+                        <td><span class="badge bg-danger">3 agences</span></td>
+                        <td><span class="status-badge status-pending">En attente</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_banque_show', {'id': 4}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_banque_edit', {'id': 4}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteBanque(4, 'UBCI')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- ATB -->
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <strong>ATB</strong>
+                            <div class="text-muted small">Tunis</div>
+                        </td>
+                        <td>www.atb.tn</td>
+                        <td>71 342 000</td>
+                        <td>atb@atb.tn</td>
+                        <td><span class="badge" style="background: #8b5cf6;">4 agences</span></td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_banque_show', {'id': 5}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_banque_edit', {'id': 5}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteBanque(5, 'ATB')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Banque de Tunisie -->
+                    <tr>
+                        <td>6</td>
+                        <td>
+                            <strong>Banque de Tunisie</strong>
+                            <div class="text-muted small">Tunis</div>
+                        </td>
+                        <td>www.bt.com.tn</td>
+                        <td>71 333 333</td>
+                        <td>contact@bt.com.tn</td>
+                        <td><span class="badge bg-info">5 agences</span></td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_banque_show', {'id': 6}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_banque_edit', {'id': 6}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteBanque(6, 'Banque de Tunisie')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Wifak Bank -->
+                    <tr>
+                        <td>7</td>
+                        <td>
+                            <strong>Wifak Bank</strong>
+                            <div class="text-muted small">Tunis</div>
+                        </td>
+                        <td>www.wifakbank.com</td>
+                        <td>70 105 105</td>
+                        <td>contact@wifakbank.com</td>
+                        <td><span class="badge bg-secondary">3 agences</span></td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_banque_show', {'id': 7}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_banque_edit', {'id': 7}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteBanque(7, 'Wifak Bank')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- BNA -->
+                    <tr>
+                        <td>8</td>
+                        <td>
+                            <strong>Banque Nationale Agricole</strong>
+                            <div class="text-muted small">Tunis</div>
+                        </td>
+                        <td>www.bna.tn</td>
+                        <td>71 333 000</td>
+                        <td>bna@bna.tn</td>
+                        <td><span class="badge" style="background: #f97316;">4 agences</span></td>
+                        <td><span class="status-badge status-active">Actif</span></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_banque_show', {'id': 8}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_banque_edit', {'id': 8}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteBanque(8, 'Banque Nationale Agricole')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        <nav class="mt-3">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Précédent</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Suivant</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <script>
+        // Fonction pour supprimer une banque
+        function deleteBanque(id, nom) {
+            if (confirm(`Êtes-vous sûr de vouloir supprimer la banque "${nom}" (ID: ${id})?`)) {
+                alert(`Banque "${nom}" supprimée (simulation)`);
+                // En production : requête AJAX pour suppression
+                // window.location.href = "/banque/" + id + "/delete";
+            }
+        }
+    </script>
+{% endblock %}

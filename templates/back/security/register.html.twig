@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beeline - Inscription</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Header avec logo */
+        .logo-header {
+            background: white;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+  .logo-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 4px solid #e6f0ff;
+}
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Changed from 'contain' to 'cover' */
+    object-position: center center; /* Ensures the center is focused */
+    padding: 0;
+}
+
+        .app-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #0052cc;
+            margin: 0;
+        }
+
+        .back-link {
+            color: #666;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #0052cc;
+        }
+
+        /* Formulaire d'inscription */
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 150px);
+            padding: 40px 20px;
+        }
+
+        .register-card {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            padding: 60px 50px;
+            border: 2px solid #e6f0ff;
+        }
+
+        .register-title {
+            font-size: 2.5rem;
+            color: #0052cc;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .register-subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Step 1: Type Selection */
+        .account-types {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .account-type-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 30px;
+            width: 250px;
+            border: 3px solid #e6f0ff;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .account-type-card:hover,
+        .account-type-card.selected {
+            transform: translateY(-10px);
+            border-color: #0052cc;
+            box-shadow: 0 15px 30px rgba(0, 82, 204, 0.1);
+            background: #f0f7ff;
+        }
+
+        .account-type-icon {
+            width: 80px;
+            height: 80px;
+            background: #e6f0ff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: #0052cc;
+            font-size: 2.2rem;
+        }
+
+        .account-type-title {
+            font-size: 1.6rem;
+            color: #0052cc;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .account-type-desc {
+            color: #666;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        /* Step 2: Form */
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .change-type-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #0052cc;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .change-type-link:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon input,
+        .input-with-icon select {
+            width: 100%;
+            padding: 18px 20px 18px 55px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            background: #f9f9f9;
+        }
+
+        .input-with-icon input:focus,
+        .input-with-icon select:focus {
+            outline: none;
+            border-color: #0052cc;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 1.2rem;
+        }
+
+        /* Improved Document Upload Section */
+        .document-upload-section {
+            border: 2px dashed #cbd5e1;
+            border-radius: 20px;
+            padding: 40px 30px;
+            background: #f8fafc;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .document-upload-section:hover,
+        .document-upload-section.drag-over {
+            border-color: #0052cc;
+            background: #f0f7ff;
+        }
+
+        .upload-icon {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .upload-icon i {
+            font-size: 3rem;
+            color: #0052cc;
+            margin-bottom: 15px;
+        }
+
+        .upload-title {
+            font-size: 1.4rem;
+            color: #0052cc;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .upload-description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .upload-requirements {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 25px;
+            border: 1px solid #e6f0ff;
+        }
+
+        .requirement-title {
+            color: #0052cc;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .requirement-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requirement-list li {
+            margin-bottom: 8px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .requirement-list li i {
+            color: #10b981;
+        }
+
+        .upload-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: #0052cc;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .upload-btn:hover {
+            background: #0041a3;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 82, 204, 0.2);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .selected-files {
+            margin-top: 20px;
+        }
+
+        .file-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            background: #e6f0ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0052cc;
+        }
+
+        .file-details {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .file-size {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .file-remove {
+            color: #ef4444;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 5px;
+        }
+
+        .file-remove:hover {
+            color: #dc2626;
+        }
+
+        /* Password strength */
+        .password-strength {
+            margin-top: 10px;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .password-strength-bar {
+            height: 100%;
+            width: 0;
+            background: #ff4d4d;
+            border-radius: 4px;
+            transition: width 0.3s, background 0.3s;
+        }
+
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .terms-checkbox input {
+            margin-top: 5px;
+        }
+
+        .terms-checkbox label {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .terms-checkbox a {
+            color: #0052cc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .terms-checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 20px;
+            background: #0052cc;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-register:hover {
+            background: #0041a3;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 82, 204, 0.2);
+        }
+
+        .login-link {
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .login-link a {
+            color: #0052cc;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #888;
+            border-top: 1px solid #e0e0e0;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .logo-header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .register-card {
+                padding: 40px 30px;
+                margin: 20px;
+            }
+            
+            .register-title {
+                font-size: 2.2rem;
+            }
+            
+            .account-types {
+                gap: 20px;
+            }
+            
+            .account-type-card {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .document-upload-section {
+                padding: 30px 20px;
+            }
+            
+            .upload-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header avec logo -->
+    <header class="logo-header">
+        <div class="logo-container">
+            <div class="logo-circle">
+                <img src="{{ asset('images/logo.png') }}" alt="Beeline Logo">
+            </div>
+            <h1 class="app-title">Beeline</h1>
+        </div>
+        
+        <div>
+            <a href="{{ path('app_home') }}" class="back-link">
+                <i class="fas fa-home"></i> Accueil
+            </a>
+        </div>
+    </header>
+
+    <!-- Formulaire d'inscription -->
+    <main class="register-container">
+        <div class="register-card">
+            <h2 class="register-title">Créer un compte</h2>
+            <p class="register-subtitle">Rejoignez Beeline aujourd'hui</p>
+            
+            <!-- Step 1: Select Account Type -->
+            <div id="stepType" class="form-section active">
+                <h3 style="text-align: center; color: #555; margin-bottom: 30px; font-size: 1.4rem;">Choisissez votre type de compte</h3>
+                
+                <div class="account-types">
+                    <!-- Client Card -->
+                    <div class="account-type-card" id="clientCard" onclick="selectAccountType('client')">
+                        <div class="account-type-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="account-type-title">Client</h3>
+                        <p class="account-type-desc">
+                            Créez un compte client pour accéder aux services Beeline
+                        </p>
+                    </div>
+                    
+                    <!-- Bancaire Card -->
+                    <div class="account-type-card" id="bancaireCard" onclick="selectAccountType('bancaire')">
+                        <div class="account-type-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="account-type-title">Bancaire</h3>
+                        <p class="account-type-desc">
+                            Inscrivez votre établissement pour devenir partenaire Beeline
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="login-link">
+                    Vous avez déjà un compte ? <a href="{{ path('app_login') }}">Se connecter</a>
+                </div>
+            </div>
+            
+            <!-- Step 2: Client Form -->
+            <div id="stepClientForm" class="form-section">
+                <a href="javascript:void(0)" class="change-type-link" onclick="goBackToTypeSelection()">
+                    <i class="fas fa-arrow-left"></i> Changer le type de compte
+                </a>
+                
+                <h3 style="color: #0052cc; margin-bottom: 25px; font-size: 1.8rem;">Inscription Client</h3>
+                
+                <form id="clientForm" action="{{ path('app_register') }}" method="POST">
+                    <input type="hidden" name="account_type" value="client">
+                    
+                    <div class="form-group">
+                        <label for="client_fullname">Nom complet *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="client_fullname" name="fullname" placeholder="Jean Dupont" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client_email">Adresse email *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="client_email" name="email" placeholder="jean@exemple.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client_password">Mot de passe *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="client_password" name="password" placeholder="Créez un mot de passe fort" required>
+                        </div>
+                        <div class="password-strength">
+                            <div class="password-strength-bar" id="clientPasswordStrengthBar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client_confirm_password">Confirmer le mot de passe *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="client_confirm_password" name="confirm_password" placeholder="Confirmez votre mot de passe" required>
+                        </div>
+                    </div>
+                    
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="client_terms" name="terms" required>
+                        <label for="client_terms">
+                            J'accepte les <a href="#">Conditions Générales d'Utilisation</a> et la <a href="#">Politique de Confidentialité</a> de Beeline.
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-register">
+                        <i class="fas fa-user-plus"></i> Créer mon compte
+                    </button>
+                </form>
+                
+                <div class="login-link">
+                    Vous avez déjà un compte ? <a href="{{ path('app_login') }}">Se connecter</a>
+                </div>
+            </div>
+            
+            <!-- Step 2: Bancaire Form -->
+            <div id="stepBancaireForm" class="form-section">
+                <a href="javascript:void(0)" class="change-type-link" onclick="goBackToTypeSelection()">
+                    <i class="fas fa-arrow-left"></i> Changer le type de compte
+                </a>
+                
+                <h3 style="color: #0052cc; margin-bottom: 25px; font-size: 1.8rem;">Inscription Bancaire</h3>
+                
+                <form id="bancaireForm" action="{{ path('app_register') }}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="account_type" value="bancaire">
+                    
+                    <div class="form-group">
+                        <label for="establishment_name">Nom de l'établissement *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-university input-icon"></i>
+                            <input type="text" id="establishment_name" name="establishment_name" placeholder="Nom de votre établissement" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="establishment_type">Type d'établissement *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-building input-icon"></i>
+                            <select id="establishment_type" name="establishment_type" required>
+                                <option value="" disabled selected>Sélectionnez le type</option>
+                                <option value="bank">Banque</option>
+                                <option value="microfinance">Institution de microfinance</option>
+                                <option value="exchange">Bureau de change</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bancaire_fullname">Nom complet *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="bancaire_fullname" name="fullname" placeholder="Nom du responsable" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bancaire_email">Email professionnel *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="bancaire_email" name="email" placeholder="contact@établissement.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bancaire_phone">Téléphone *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone input-icon"></i>
+                            <input type="tel" id="bancaire_phone" name="phone" placeholder="+216 XX XXX XXX" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bancaire_password">Mot de passe *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="bancaire_password" name="password" placeholder="Créez un mot de passe fort" required>
+                        </div>
+                        <div class="password-strength">
+                            <div class="password-strength-bar" id="bancairePasswordStrengthBar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bancaire_confirm_password">Confirmer le mot de passe *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="bancaire_confirm_password" name="confirm_password" placeholder="Confirmez votre mot de passe" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Improved Document Upload Section -->
+                    <div class="document-upload-section" id="documentUploadSection">
+                        <div class="upload-icon">
+                            <i class="fas fa-file-upload"></i>
+                            <h4 class="upload-title">Documents justificatifs</h4>
+                            <p class="upload-description">Glissez-déposez vos fichiers ici ou cliquez pour sélectionner</p>
+                        </div>
+                        
+                        <input type="file" id="documents" name="documents[]" multiple accept=".pdf,.jpg,.jpeg,.png" class="file-input">
+                        
+                        <button type="button" class="upload-btn" onclick="document.getElementById('documents').click()">
+                            <i class="fas fa-folder-open"></i> Choisir des fichiers
+                        </button>
+                        
+                        <!-- Selected Files List -->
+                        <div class="selected-files" id="selectedFiles" style="display: none;">
+                            <h5 style="margin-bottom: 15px; color: #0052cc;">Fichiers sélectionnés:</h5>
+                            <div class="file-list" id="fileList"></div>
+                        </div>
+                        
+                        <div class="upload-requirements">
+                            <div class="requirement-title">Documents acceptés:</div>
+                            <ul class="requirement-list">
+                                <li><i class="fas fa-check-circle"></i> Registre de commerce</li>
+                                <li><i class="fas fa-check-circle"></i> Autorisation d'exercice</li>
+                                <li><i class="fas fa-check-circle"></i> Documents officiels</li>
+                                <li><i class="fas fa-check-circle"></i> Formats: PDF, JPG, JPEG, PNG</li>
+                                <li><i class="fas fa-check-circle"></i> Taille max par fichier: 10MB</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="bancaire_terms" name="terms" required>
+                        <label for="bancaire_terms">
+                            J'accepte les <a href="#">Conditions Générales d'Utilisation</a> et la <a href="#">Politique de Confidentialité</a> de Beeline.
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-register">
+                        <i class="fas fa-university"></i> S'inscrire comme établissement
+                    </button>
+                </form>
+                
+                <div class="login-link">
+                    Vous avez déjà un compte ? <a href="{{ path('app_login') }}">Se connecter</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Beeline. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        let selectedAccountType = '';
+        let selectedFiles = [];
+        const maxFileSize = 10 * 1024 * 1024; // 10MB
+        
+        function selectAccountType(type) {
+            selectedAccountType = type;
+            
+            // Remove selection from both cards
+            document.getElementById('clientCard').classList.remove('selected');
+            document.getElementById('bancaireCard').classList.remove('selected');
+            
+            // Add selection to clicked card
+            if (type === 'client') {
+                document.getElementById('clientCard').classList.add('selected');
+                setTimeout(() => {
+                    document.getElementById('stepType').classList.remove('active');
+                    document.getElementById('stepClientForm').classList.add('active');
+                }, 300);
+            } else if (type === 'bancaire') {
+                document.getElementById('bancaireCard').classList.add('selected');
+                setTimeout(() => {
+                    document.getElementById('stepType').classList.remove('active');
+                    document.getElementById('stepBancaireForm').classList.add('active');
+                }, 300);
+            }
+        }
+        
+        function goBackToTypeSelection() {
+            document.getElementById('stepClientForm').classList.remove('active');
+            document.getElementById('stepBancaireForm').classList.remove('active');
+            document.getElementById('stepType').classList.add('active');
+            selectedAccountType = '';
+        }
+        
+        // Password strength for client form
+        document.getElementById('client_password')?.addEventListener('input', function() {
+            const password = this.value;
+            const strengthBar = document.getElementById('clientPasswordStrengthBar');
+            updatePasswordStrength(password, strengthBar);
+        });
+        
+        // Password strength for bancaire form
+        document.getElementById('bancaire_password')?.addEventListener('input', function() {
+            const password = this.value;
+            const strengthBar = document.getElementById('bancairePasswordStrengthBar');
+            updatePasswordStrength(password, strengthBar);
+        });
+        
+        function updatePasswordStrength(password, strengthBar) {
+            let strength = 0;
+            
+            if (password.length >= 8) strength += 25;
+            if (/[A-Z]/.test(password)) strength += 25;
+            if (/[0-9]/.test(password)) strength += 25;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 25;
+            
+            strengthBar.style.width = strength + '%';
+            
+            if (strength < 50) {
+                strengthBar.style.background = '#ff4d4d';
+            } else if (strength < 75) {
+                strengthBar.style.background = '#ffa500';
+            } else {
+                strengthBar.style.background = '#2ecc71';
+            }
+        }
+        
+        // Improved Document Upload Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('documents');
+            const documentUploadSection = document.getElementById('documentUploadSection');
+            const selectedFilesContainer = document.getElementById('selectedFiles');
+            const fileListContainer = document.getElementById('fileList');
+            
+            // Drag and drop functionality
+            documentUploadSection.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('drag-over');
+            });
+            
+            documentUploadSection.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.classList.remove('drag-over');
+            });
+            
+            documentUploadSection.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('drag-over');
+                
+                if (e.dataTransfer.files.length) {
+                    handleFiles(e.dataTransfer.files);
+                }
+            });
+            
+            // File input change
+            fileInput.addEventListener('change', function(e) {
+                if (this.files.length) {
+                    handleFiles(this.files);
+                }
+            });
+            
+            function handleFiles(files) {
+                for (let file of files) {
+                    // Check file size
+                    if (file.size > maxFileSize) {
+                        alert(`Le fichier "${file.name}" dépasse la taille maximale de 10MB.`);
+                        continue;
+                    }
+                    
+                    // Check file type
+                    const validTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
+                    if (!validTypes.includes(file.type)) {
+                        alert(`Le fichier "${file.name}" n'est pas d'un type accepté. Formats acceptés: PDF, JPG, JPEG, PNG.`);
+                        continue;
+                    }
+                    
+                    // Add to selected files
+                    selectedFiles.push(file);
+                }
+                
+                updateFileList();
+            }
+            
+            function updateFileList() {
+                if (selectedFiles.length === 0) {
+                    selectedFilesContainer.style.display = 'none';
+                    return;
+                }
+                
+                selectedFilesContainer.style.display = 'block';
+                fileListContainer.innerHTML = '';
+                
+                selectedFiles.forEach((file, index) => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    
+                    const fileExtension = file.name.split('.').pop().toLowerCase();
+                    const fileIcon = getFileIcon(file.type, fileExtension);
+                    
+                    fileItem.innerHTML = `
+                        <div class="file-info">
+                            <div class="file-icon">
+                                <i class="${fileIcon}"></i>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name">${file.name}</div>
+                                <div class="file-size">${formatFileSize(file.size)}</div>
+                            </div>
+                        </div>
+                        <button type="button" class="file-remove" onclick="removeFile(${index})">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                    
+                    fileListContainer.appendChild(fileItem);
+                });
+            }
+            
+            window.removeFile = function(index) {
+                selectedFiles.splice(index, 1);
+                updateFileList();
+                
+                // Update the actual file input
+                const dataTransfer = new DataTransfer();
+                selectedFiles.forEach(file => dataTransfer.items.add(file));
+                fileInput.files = dataTransfer.files;
+            };
+            
+            function getFileIcon(fileType, extension) {
+                if (fileType === 'application/pdf') return 'fas fa-file-pdf';
+                if (['jpg', 'jpeg', 'png'].includes(extension)) return 'fas fa-file-image';
+                return 'fas fa-file';
+            }
+            
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+        });
+        
+        // Client form submission
+        document.getElementById('clientForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullname = document.getElementById('client_fullname').value;
+            const email = document.getElementById('client_email').value;
+            const password = document.getElementById('client_password').value;
+            const confirmPassword = document.getElementById('client_confirm_password').value;
+            const terms = document.getElementById('client_terms').checked;
+            
+            if (!validateForm(fullname, email, password, confirmPassword, terms)) return;
+            
+            alert(`Compte client créé avec succès pour ${fullname}!`);
+            window.location.href = "{{ path('app_login') }}";
+        });
+        
+        // Bancaire form submission
+        document.getElementById('bancaireForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const establishmentName = document.getElementById('establishment_name').value;
+            const establishmentType = document.getElementById('establishment_type').value;
+            const fullname = document.getElementById('bancaire_fullname').value;
+            const email = document.getElementById('bancaire_email').value;
+            const phone = document.getElementById('bancaire_phone').value;
+            const password = document.getElementById('bancaire_password').value;
+            const confirmPassword = document.getElementById('bancaire_confirm_password').value;
+            const terms = document.getElementById('bancaire_terms').checked;
+            
+            if (!establishmentName || !establishmentType || !fullname || !email || !phone || !password || !confirmPassword) {
+                alert('Veuillez remplir tous les champs obligatoires');
+                return;
+            }
+            
+            if (!terms) {
+                alert('Vous devez accepter les conditions d\'utilisation');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Les mots de passe ne correspondent pas');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('Le mot de passe doit contenir au moins 8 caractères');
+                return;
+            }
+            
+            if (selectedFiles.length === 0) {
+                alert('Veuillez télécharger au moins un document justificatif');
+                return;
+            }
+            
+            alert(`Demande d'inscription bancaire soumise pour ${establishmentName}!\nNos équipes vont vérifier vos documents et vous contacteront sous 48h.`);
+            window.location.href = "{{ path('app_login') }}";
+        });
+        
+        function validateForm(fullname, email, password, confirmPassword, terms) {
+            if (!fullname || !email || !password || !confirmPassword) {
+                alert('Veuillez remplir tous les champs obligatoires');
+                return false;
+            }
+            
+            if (!terms) {
+                alert('Vous devez accepter les conditions d\'utilisation');
+                return false;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Les mots de passe ne correspondent pas');
+                return false;
+            }
+            
+            if (password.length < 8) {
+                alert('Le mot de passe doit contenir au moins 8 caractères');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // Input focus effects
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                const icon = this.parentElement.querySelector('.input-icon');
+                if (icon) icon.style.color = '#0052cc';
+            });
+            
+            input.addEventListener('blur', function() {
+                const icon = this.parentElement.querySelector('.input-icon');
+                if (icon) icon.style.color = '#777';
+            });
+        });
+    </script>
+</body>
+</html>

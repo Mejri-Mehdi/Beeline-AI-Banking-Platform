@@ -1,0 +1,663 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard - Gestion Banques{% endblock %}
+{% block page_title %}Tableau de bord{% endblock %}
+{% block breadcrumb %}Dashboard{% endblock %}
+
+{% block body %}
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <div class="stat-info">
+                <h3>24</h3>
+                <p>Rendez-vous</p>
+            </div>
+            <div class="stat-trend up">
+                <i class="fas fa-arrow-up"></i> 8%
+            </div>
+        </div>
+        
+<a href="{{ path('app_offre_index') }}" class="stat-card-link" style="text-decoration: none; color: inherit;">
+    <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%);">
+            <i class="fas fa-percentage"></i>
+        </div>
+        <div class="stat-info">
+            <h3>15</h3>
+            <p>Offres bancaires</p>
+        </div>
+        <div class="stat-trend up">
+            <i class="fas fa-arrow-up"></i> 12%
+        </div>
+    </div>
+</a>
+        
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);">
+                <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <div class="stat-info">
+                <h3>42</h3>
+                <p>Demandes financement</p>
+            </div>
+            <div class="stat-trend up">
+                <i class="fas fa-arrow-up"></i> 18%
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);">
+                <i class="fas fa-landmark"></i>
+            </div>
+            <div class="stat-info">
+                <h3>57</h3>
+                <p>Banques & Agences</p>
+            </div>
+            <div class="stat-trend up">
+                <i class="fas fa-arrow-up"></i> 5%
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistiques des Rendez-vous par Agence -->
+    <div class="content-card mt-4">
+        <div class="card-header">
+            <h3>Statistiques des Rendez-vous par Agence</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="chart-container" style="height: 300px;">
+                    <canvas id="rdvAgenceChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="chart-legend">
+                    <h6 class="mb-3">Top 5 Agences</h6>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #4f46e5;"></span>
+                        <span class="legend-label">Zitouna Tunis Centre</span>
+                        <span class="legend-value">12</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #10b981;"></span>
+                        <span class="legend-label">Amen Bank Tunis</span>
+                        <span class="legend-value">8</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #f59e0b;"></span>
+                        <span class="legend-label">BIAT Sousse</span>
+                        <span class="legend-value">7</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #ef4444;"></span>
+                        <span class="legend-label">UBCI Ariana</span>
+                        <span class="legend-value">6</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #8b5cf6;"></span>
+                        <span class="legend-label">ATB Bizerte</span>
+                        <span class="legend-value">5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistiques des Offres Bancaires par Agence -->
+    <div class="content-card mt-4">
+        <div class="card-header">
+            <h3>Statistiques des Offres Bancaires par Agence</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="chart-container" style="height: 300px;">
+                    <canvas id="offersAgenceChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="offers-details">
+                    <h6 class="mb-3">Détails des offres par agence</h6>
+                    <div class="offer-agence-item">
+                        <div class="agence-info">
+                            <span class="agence-name">Agence Zitouna Tunis Centre</span>
+                            <span class="agence-badge" style="background: #4f46e5;">Banque Zitouna</span>
+                        </div>
+                        <div class="offer-stats">
+                            <span class="offer-count">5 offres actives</span>
+                            <div class="offer-types">
+                                <span class="badge bg-info me-1">Crédit Immobilier</span>
+                                <span class="badge bg-success me-1">Crédit Auto</span>
+                                <span class="badge bg-warning">Prêt Personnel</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-agence-item">
+                        <div class="agence-info">
+                            <span class="agence-name">Agence Amen Bank Tunis</span>
+                            <span class="agence-badge" style="background: #10b981;">Amen Bank</span>
+                        </div>
+                        <div class="offer-stats">
+                            <span class="offer-count">4 offres actives</span>
+                            <div class="offer-types">
+                                <span class="badge bg-info me-1">Crédit Immobilier</span>
+                                <span class="badge bg-danger me-1">Crédit Pro</span>
+                                <span class="badge bg-primary">Prêt Étudiant</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-agence-item">
+                        <div class="agence-info">
+                            <span class="agence-name">Agence BIAT Sousse</span>
+                            <span class="agence-badge" style="background: #f59e0b;">BIAT</span>
+                        </div>
+                        <div class="offer-stats">
+                            <span class="offer-count">6 offres actives</span>
+                            <div class="offer-types">
+                                <span class="badge bg-info me-1">Crédit Immobilier</span>
+                                <span class="badge bg-success me-1">Crédit Auto</span>
+                                <span class="badge bg-dark">Crédit Équipement</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-agence-item">
+                        <div class="agence-info">
+                            <span class="agence-name">Agence UBCI Ariana</span>
+                            <span class="agence-badge" style="background: #ef4444;">UBCI</span>
+                        </div>
+                        <div class="offer-stats">
+                            <span class="offer-count">3 offres actives</span>
+                            <div class="offer-types">
+                                <span class="badge bg-success me-1">Crédit Auto</span>
+                                <span class="badge bg-warning">Prêt Personnel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistiques par Jour -->
+    <div class="content-card mt-4">
+        <div class="card-header">
+            <h3>Rendez-vous par Jour de la Semaine</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="chart-container" style="height: 250px;">
+                    <canvas id="weeklyActivityChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="daily-stats">
+                    <h6 class="mb-3">Détails par jour</h6>
+                    <div class="day-stat-item">
+                        <span class="day">Lundi</span>
+                        <span class="value">44</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 44%; background-color: #4f46e5;"></div>
+                        </div>
+                    </div>
+                    <div class="day-stat-item">
+                        <span class="day">Mardi</span>
+                        <span class="value">54</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 54%; background-color: #10b981;"></div>
+                        </div>
+                    </div>
+                    <div class="day-stat-item">
+                        <span class="day">Mercredi</span>
+                        <span class="value">38</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 38%; background-color: #f59e0b;"></div>
+                        </div>
+                    </div>
+                    <div class="day-stat-item">
+                        <span class="day">Jeudi</span>
+                        <span class="value">64</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 64%; background-color: #ef4444;"></div>
+                        </div>
+                    </div>
+                    <div class="day-stat-item">
+                        <span class="day">Vendredi</span>
+                        <span class="value">50</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 50%; background-color: #8b5cf6;"></div>
+                        </div>
+                    </div>
+                    <div class="day-stat-item">
+                        <span class="day">Samedi</span>
+                        <span class="value">32</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 32%; background-color: #06b6d4;"></div>
+                        </div>
+                    </div>
+                    <div class="day-stat-item">
+                        <span class="day">Dimanche</span>
+                        <span class="value">20</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 20%; background-color: #6b7280;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!-- Statistiques Bancaires -->
+<div class="content-card mt-4">
+    <div class="card-header">
+        <h3>Statistiques Bancaires</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="service-stat-card">
+                <div class="service-icon" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="service-info">
+                    <h4>8</h4>
+                    <p>Banques actives</p>
+                    <small class="text-muted">+1 depuis le mois dernier</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="service-stat-card">
+                <div class="service-icon" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%);">
+                    <i class="fas fa-store-alt"></i>
+                </div>
+                <div class="service-info">
+                    <h4>57</h4>
+                    <p>Agences totales</p>
+                    <small class="text-muted">+3 depuis le mois dernier</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="service-stat-card">
+                <div class="service-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <div class="service-info">
+                    <h4>42</h4>
+                    <p>Services bancaires</p>
+                    <small class="text-muted">+8% depuis le mois dernier</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <div class="service-stat-card">
+                <div class="service-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <div class="service-info">
+                    <h4>12,5M</h4>
+                    <p>Total crédits accordés</p>
+                    <small class="text-muted">en dinars tunisiens</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="service-stat-card">
+                <div class="service-icon" style="background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);">
+                    <i class="fas fa-percentage"></i>
+                </div>
+                <div class="service-info">
+                    <h4>5.2%</h4>
+                    <p>Taux d'intérêt moyen</p>
+                    <small class="text-muted">pour les prêts immobiliers</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <style>
+        .chart-legend {
+            padding: 20px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 8px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            transition: all 0.3s;
+        }
+        
+        .legend-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+        
+        .legend-label {
+            flex-grow: 1;
+            font-weight: 500;
+        }
+        
+        .legend-value {
+            font-weight: 700;
+            color: #4f46e5;
+        }
+        
+        .daily-stats {
+            padding: 20px;
+        }
+        
+        .day-stat-item {
+            margin-bottom: 15px;
+        }
+        
+        .day-stat-item .day {
+            display: inline-block;
+            width: 80px;
+            font-weight: 500;
+        }
+        
+        .day-stat-item .value {
+            float: right;
+            font-weight: 700;
+            color: #4f46e5;
+        }
+        
+        .day-stat-item .progress {
+            height: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            background: #f1f5f9;
+        }
+        
+        .service-stat-card {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .service-stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            margin-right: 20px;
+        }
+        
+        .service-info h4 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+            color: #212529;
+        }
+        
+        .service-info p {
+            margin: 0;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .service-info small {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        .offers-details {
+            padding: 15px;
+        }
+        
+        .offer-agence-item {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        
+        .offer-agence-item:hover {
+            border-color: #4f46e5;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .agence-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .agence-name {
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .agence-badge {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .offer-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .offer-count {
+            font-weight: 600;
+            color: #4f46e5;
+        }
+        
+        .offer-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .badge {
+            font-size: 10px;
+            padding: 4px 8px;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Graphique des rendez-vous par agence
+        const rdvCtx = document.getElementById('rdvAgenceChart').getContext('2d');
+        const rdvChart = new Chart(rdvCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Zitouna Tunis Centre', 'Amen Bank Tunis', 'BIAT Sousse', 'UBCI Ariana', 'ATB Bizerte', 'BT Tunis', 'Wifak Bank', 'BNA Tunis'],
+                datasets: [{
+                    label: 'Nombre de rendez-vous',
+                    data: [12, 8, 7, 6, 5, 4, 3, 2],
+                    backgroundColor: [
+                        '#4f46e5',
+                        '#10b981',
+                        '#f59e0b',
+                        '#ef4444',
+                        '#8b5cf6',
+                        '#06b6d4',
+                        '#6b7280',
+                        '#f97316'
+                    ],
+                    borderRadius: 8,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            display: true,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            stepSize: 2
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Rendez-vous: ${context.raw}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Graphique des offres par agence
+        const offersCtx = document.getElementById('offersAgenceChart').getContext('2d');
+        const offersChart = new Chart(offersCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Zitouna Tunis Centre', 'Amen Bank Tunis', 'BIAT Sousse', 'UBCI Ariana', 'ATB Bizerte'],
+                datasets: [{
+                    data: [5, 4, 6, 3, 4],
+                    backgroundColor: [
+                        '#4f46e5',
+                        '#10b981',
+                        '#f59e0b',
+                        '#ef4444',
+                        '#8b5cf6'
+                    ],
+                    borderWidth: 3,
+                    borderColor: '#fff',
+                    cutout: '70%'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            padding: 15,
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw} offres actives`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Graphique d'activité hebdomadaire
+        const weeklyCtx = document.getElementById('weeklyActivityChart').getContext('2d');
+        const weeklyChart = new Chart(weeklyCtx, {
+            type: 'line',
+            data: {
+                labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+                datasets: [{
+                    label: 'Rendez-vous',
+                    data: [44, 54, 38, 64, 50, 32, 20],
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    borderColor: '#4f46e5',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#4f46e5',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            display: true,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value;
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Rendez-vous: ${context.raw}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

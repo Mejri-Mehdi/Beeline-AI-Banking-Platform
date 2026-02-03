@@ -1,0 +1,43 @@
+security:
+    # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+    
+    # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+    providers:
+        # utilisé pour relire l'utilisateur depuis la session
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+    
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        
+        main:
+            lazy: true
+            provider: app_user_provider
+            form_login:
+                # le nom de votre route de connexion
+                login_path: app_login
+                # l'URL vers laquelle soumettre le formulaire de connexion
+                check_path: app_login
+                # active la protection CSRF
+                enable_csrf: true
+                # redirection après connexion réussie
+                default_target_path: app_home
+                # en cas d'erreur
+                failure_path: app_login
+            logout:
+                path: app_logout
+                # redirection après déconnexion
+                target: app_login
+    
+    access_control:
+        # toutes les URLs sont accessibles sans connexion
+        # (ajustez selon vos besoins)
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/register, roles: PUBLIC_ACCESS }
+        - { path: ^/, roles: PUBLIC_ACCESS }  # temporaire - à sécuriser après

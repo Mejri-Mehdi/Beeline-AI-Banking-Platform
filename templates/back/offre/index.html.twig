@@ -1,0 +1,544 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Offres Bancaires{% endblock %}
+{% block page_title %}Offres Bancaires{% endblock %}
+{% block breadcrumb %}<a href="{{ path('app_dashboard') }}">Dashboard</a> / <span class="active">Offres</span>{% endblock %}
+
+{% block body %}
+    <div class="content-card">
+        <div class="card-header">
+            <h3>Liste des offres bancaires</h3>
+            <div class="d-flex gap-3 align-items-center">
+                <!-- Filtres rapides -->
+                <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-outline-primary filter-btn active" data-filter="all">Toutes</button>
+                    <button class="btn btn-sm btn-outline-success filter-btn" data-filter="active">Actives</button>
+                    <button class="btn btn-sm btn-outline-warning filter-btn" data-filter="upcoming">À venir</button>
+                    <button class="btn btn-sm btn-outline-danger filter-btn" data-filter="expired">Expirées</button>
+                </div>
+                
+                <div class="input-group" style="width: 250px;">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Rechercher..." id="searchInput">
+                </div>
+                
+                <!-- Filtres par banque -->
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-filter me-2"></i>Filtrer par banque
+                    </button>
+                    <div class="dropdown-menu p-3" style="width: 300px;">
+                        <div class="mb-3">
+                            <label class="form-label small">Banque</label>
+                            <select class="form-select form-select-sm" id="banqueFilter">
+                                <option value="all">Toutes les banques</option>
+                                <option value="zitouna">Banque Zitouna</option>
+                                <option value="amen">Amen Bank</option>
+                                <option value="biat">BIAT</option>
+                                <option value="ubci">UBCI</option>
+                                <option value="atb">ATB</option>
+                                <option value="bt">Banque de Tunisie</option>
+                                <option value="wifak">Wifak Bank</option>
+                                <option value="bna">BNA</option>
+                            </select>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-sm" onclick="appliquerFiltreBanque()">Appliquer</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="{{ path('app_offre_new') }}" class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i> Nouvelle offre
+                </a>
+            </div>
+        </div>
+        
+        <!-- Statistiques -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="stats-card bg-primary">
+                    <i class="fas fa-bullhorn"></i>
+                    <div class="stats-content">
+                        <h4>24</h4>
+                        <p>Offres actives</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card bg-success">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="stats-content">
+                        <h4>1,240</h4>
+                        <p>Vues totales</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card bg-warning">
+                    <i class="fas fa-file-signature"></i>
+                    <div class="stats-content">
+                        <h4>156</h4>
+                        <p>Applications</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card bg-info">
+                    <i class="fas fa-clock"></i>
+                    <div class="stats-content">
+                        <h4>8</h4>
+                        <p>Offres à venir</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom de l'offre</th>
+                        <th>Type</th>
+                        <th>Banque</th>
+                        <th>Dates</th>
+                        <th>Statut</th>
+                        <th>Vues</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Offre 1 - Banque Zitouna -->
+                    <tr class="offre-row" data-status="active" data-banque="zitouna">
+                        <td>#OFF-001</td>
+                        <td>
+                            <strong>Crédit Immobilier - Taux Réduit</strong>
+                            <div class="text-muted small">Pour premier achat immobilier</div>
+                        </td>
+                        <td>
+                            <span class="badge bg-primary">Taux Réduit</span>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="bank-logo-small bg-indigo">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="ms-2">
+                                    <div>Banque Zitouna</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="date-range">
+                                <div><i class="fas fa-play text-success me-1"></i> 15/01/2024</div>
+                                <div><i class="fas fa-stop text-danger me-1"></i> 30/06/2024</div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">
+                                <i class="fas fa-circle me-1"></i>Active
+                            </span>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <i class="fas fa-eye text-primary me-1"></i>
+                                <strong>1,250</strong>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_offre_show', {'id': 1}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_offre_edit', {'id': 1}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteOffre(1, 'Crédit Immobilier')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Offre 2 - Amen Bank -->
+                    <tr class="offre-row" data-status="upcoming" data-banque="amen">
+                        <td>#OFF-002</td>
+                        <td>
+                            <strong>Compte Épargne Premium</strong>
+                            <div class="text-muted small">Intérêts majorés pendant 6 mois</div>
+                        </td>
+                        <td>
+                            <span class="badge bg-success">Promotion Spéciale</span>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="bank-logo-small bg-blue">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="ms-2">
+                                    <div>Amen Bank</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="date-range">
+                                <div><i class="fas fa-play text-warning me-1"></i> 01/03/2024</div>
+                                <div><i class="fas fa-stop text-danger me-1"></i> 01/09/2024</div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="status-badge status-upcoming">
+                                <i class="fas fa-clock me-1"></i>À venir
+                            </span>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <i class="fas fa-eye text-primary me-1"></i>
+                                <strong>450</strong>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_offre_show', {'id': 2}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_offre_edit', {'id': 2}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteOffre(2, 'Compte Épargne Premium')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Offre 3 - BIAT -->
+                    <tr class="offre-row" data-status="active" data-banque="biat">
+                        <td>#OFF-003</td>
+                        <td>
+                            <strong>Crédit Auto Express</strong>
+                            <div class="text-muted small">Décision sous 48h, frais réduits</div>
+                        </td>
+                        <td>
+                            <span class="badge bg-warning">Nouveau Client</span>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="bank-logo-small bg-green">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="ms-2">
+                                    <div>BIAT</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="date-range">
+                                <div><i class="fas fa-play text-success me-1"></i> 01/01/2024</div>
+                                <div><i class="fas fa-stop text-danger me-1"></i> 31/12/2024</div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">
+                                <i class="fas fa-circle me-1"></i>Active
+                            </span>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <i class="fas fa-eye text-primary me-1"></i>
+                                <strong>890</strong>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_offre_show', {'id': 3}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_offre_edit', {'id': 3}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteOffre(3, 'Crédit Auto Express')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Offre 4 - UBCI -->
+                    <tr class="offre-row" data-status="expired" data-banque="ubci">
+                        <td>#OFF-004</td>
+                        <td>
+                            <strong>Carte Gold Gratuite 1ère année</strong>
+                            <div class="text-muted small">Offre fidélité clients premium</div>
+                        </td>
+                        <td>
+                            <span class="badge bg-info">Fidélité</span>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="bank-logo-small bg-purple">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="ms-2">
+                                    <div>UBCI</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="date-range">
+                                <div><i class="fas fa-play text-muted me-1"></i> 01/10/2023</div>
+                                <div><i class="fas fa-stop text-danger me-1"></i> 31/12/2023</div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="status-badge status-expired">
+                                <i class="fas fa-times-circle me-1"></i>Expirée
+                            </span>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <i class="fas fa-eye text-primary me-1"></i>
+                                <strong>2,150</strong>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_offre_show', {'id': 4}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_offre_edit', {'id': 4}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteOffre(4, 'Carte Gold Gratuite')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Offre 5 - ATB -->
+                    <tr class="offre-row" data-status="active" data-banque="atb">
+                        <td>#OFF-005</td>
+                        <td>
+                            <strong>Prêt Étudiant Avantageux</strong>
+                            <div class="text-muted small">Pour étudiants en master/doctorat</div>
+                        </td>
+                        <td>
+                            <span class="badge bg-primary">Taux Réduit</span>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="bank-logo-small bg-orange">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="ms-2">
+                                    <div>ATB</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="date-range">
+                                <div><i class="fas fa-play text-success me-1"></i> 15/12/2023</div>
+                                <div><i class="fas fa-stop text-danger me-1"></i> 15/06/2024</div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="status-badge status-active">
+                                <i class="fas fa-circle me-1"></i>Active
+                            </span>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <i class="fas fa-eye text-primary me-1"></i>
+                                <strong>1,780</strong>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a href="{{ path('app_offre_show', {'id': 5}) }}" class="btn btn-outline-primary" title="Voir détails">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_offre_edit', {'id': 5}) }}" class="btn btn-outline-success" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" title="Supprimer" onclick="deleteOffre(5, 'Prêt Étudiant')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        <nav class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Précédent</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Suivant</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <script>
+        // Filtrage des offres par statut
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                const rows = document.querySelectorAll('.offre-row');
+                
+                rows.forEach(row => {
+                    if (filter === 'all' || row.dataset.status === filter) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Recherche
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('.offre-row');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+        
+        // Filtrage par banque
+        function appliquerFiltreBanque() {
+            const banqueFilter = document.getElementById('banqueFilter').value;
+            const rows = document.querySelectorAll('.offre-row');
+            
+            rows.forEach(row => {
+                if (banqueFilter === 'all') {
+                    row.style.display = '';
+                } else {
+                    if (row.dataset.banque === banqueFilter) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+            
+            // Fermer le dropdown
+            const dropdown = document.querySelector('.dropdown .btn');
+            bootstrap.Dropdown.getInstance(dropdown).hide();
+        }
+        
+        // Fonction pour supprimer une offre
+        function deleteOffre(id, nom) {
+            if (confirm(`Êtes-vous sûr de vouloir supprimer l'offre "${nom}" (ID: #OFF-${id.toString().padStart(3, '0')})?`)) {
+                alert(`Offre "${nom}" supprimée (simulation)`);
+                // En production : requête AJAX pour suppression
+            }
+        }
+    </script>
+    
+    <style>
+        .stats-card {
+            background: linear-gradient(135deg, var(--bg-color), color-mix(in srgb, var(--bg-color) 80%, black));
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stats-card i {
+            font-size: 40px;
+            opacity: 0.9;
+        }
+        
+        .stats-content h4 {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .stats-content p {
+            margin: 5px 0 0;
+            opacity: 0.9;
+        }
+        
+        .bank-logo-small {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .bg-indigo { background: linear-gradient(135deg, #4f46e5, #3730a3); }
+        .bg-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .bg-green { background: linear-gradient(135deg, #10b981, #047857); }
+        .bg-purple { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+        .bg-orange { background: linear-gradient(135deg, #f97316, #ea580c); }
+        
+        .date-range {
+            font-size: 13px;
+        }
+        
+        .date-range div {
+            margin-bottom: 3px;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background: #d1fae5;
+            color: #059669;
+        }
+        
+        .status-upcoming {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
+        .status-expired {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        
+        .filter-btn.active {
+            background-color: #4f46e5;
+            color: white;
+            border-color: #4f46e5;
+        }
+        
+        .data-table tbody tr:hover {
+            background: #f8fafc;
+        }
+    </style>
+{% endblock %}
