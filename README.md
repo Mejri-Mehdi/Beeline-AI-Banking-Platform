@@ -44,7 +44,7 @@ graph TD
         OCR[OcrAnalyzerService]
         AI[FinancementAiService]
         Assistant[ClientBankAssistant]
-        PDF[PdfGenerator - Browsershot]
+        PDF[FediaPdfGenerator - Browsershot]
         Rate[TauxExterneService - ExchangeRate]
         Geo[NominatimGeocoder]
     end
@@ -54,6 +54,169 @@ graph TD
     AdminSpace --> Services
     
     Services --> DB[(Aiven Cloud MySQL)]
+```
+
+### 🗂️ Entity Class Schema (UML)
+
+The relational schema of the entities is designed to support the 5 core banking business domains:
+
+```mermaid
+classDiagram
+    direction TB
+    class Utilisateur {
+        +int id_util
+        +string nom_u
+        +string prenom_u
+        +string email_u
+        +string telephone
+        +string adresse
+        +string mot_de_passe
+        +string role
+        +DateTime date_creation
+        +string statut_compte
+        +sinscrire() bool
+        +seConnecter() bool
+        +modifierProfil() void
+        +deconnecter() void
+    }
+
+    class Profile {
+        +int id_profile
+        +int id_util
+        +string niveau_experience
+        +JSON preferences
+        +string photo
+        +string bio
+        +creerProfile() void
+        +modifierProfile() void
+        +uploadPhoto() void
+        +mettreAJour() void
+    }
+
+    class Banque {
+        +int id_Bq
+        +string nom
+        +string email
+        +string telephone
+        +string adresse
+        +string ville
+        +string code_postal
+        +string statut
+        +string[] activites
+        +creerBanque() bool
+        +modifierInfos() void
+        +supprimerBanque() bool
+    }
+
+    class Agence {
+        +int id_Ag
+        +int id_Bq
+        +string nom
+        +string adresse
+        +string ville
+        +string code_postal
+        +string telephone
+        +string email
+        +string horaire_ouverture
+        +creerAgence() bool
+        +modifierAgence() void
+        +checkDisponibilite() bool
+    }
+
+    class Service {
+        +int id_service
+        +string nom_service
+        +string description
+        +int duree_estimee
+        +bool disponible
+        +decimal frais
+        +string documents_requis
+        +string categorie
+        +string priorite_defaut
+        +creerService() void
+        +modifierService() void
+        +getPriorite() string
+    }
+
+    class RendezVous {
+        +int id_rv
+        +int id_client
+        +int id_agent
+        +int id_service
+        +int id_agence
+        +DateTime date_heure
+        +int duree
+        +string statut
+        +string priorite
+        +planifier() bool
+        +annuler() bool
+        +confirmer() void
+    }
+
+    class DemandeFinancement {
+        +int id_demande
+        +int id_client
+        +int id_agent
+        +int id_offre
+        +string type_Dmd
+        +DateTime date_depot
+        +string statut
+        +decimal montant
+        +soumettre() bool
+        +traiter() void
+        +approuver() void
+        +refuser() bool
+    }
+
+    class Document {
+        +int id_doc
+        +int id_demande
+        +string nom_fichier
+        +string type_document
+        +string chemin_stockage
+        +string statut_verification
+        +uploader() bool
+        +verifier() bool
+        +extraireTexte() string
+    }
+
+    class Offre {
+        +int id_offre
+        +int id_banque
+        +string nom
+        +string description
+        +Date date_debut
+        +Date date_fin
+        +float taux_interet
+        +decimal montant_max
+        +decimal montant_min
+        +publier() bool
+        +retirer() void
+        +calculerMensualite() decimal
+    }
+
+    class Condition {
+        +int id_condition
+        +int id_offre
+        +float taux_special
+        +decimal montant_seuil
+        +int duree_max
+        +ajouterCondition() void
+        +modifierCondition() void
+        +verifierEligibilite() bool
+    }
+
+    Utilisateur "1" *-- "1" Profile : possède
+    Banque "1" *-- "*" Agence : possède
+    Banque "1" *-- "*" Offre : propose
+    Banque "1" *-- "*" Service : offre
+    Offre "1" *-- "*" Condition : a
+    RendezVous "*" --> "1" Utilisateur : avec (client/agent)
+    RendezVous "*" --> "1" Service : pour
+    RendezVous "*" --> "1" Agence : à
+    DemandeFinancement "*" --> "1" Utilisateur : de (client)
+    DemandeFinancement "*" --> "1" Offre : concerne
+    DemandeFinancement "1" *-- "*" Document : contient
 ```
 
 ---
