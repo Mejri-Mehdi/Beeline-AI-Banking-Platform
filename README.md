@@ -350,11 +350,11 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/ff73e851-8357-470e-a77e-9715bc7d2032" width="100%" alt="Login Page"/>
+      <img src="https://github.com/user-attachments/assets/92bf7991-c5f6-4155-83cf-4cbad42460e7" width="100%" alt="Login Page"/>
       <br/><b>🔑 Login — Multi-Provider OAuth (Google · GitHub · Facebook)</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/a1986821-60e3-4308-ad5d-670514d97450" width="100%" alt="Register Page"/>
+      <img src="https://github.com/user-attachments/assets/61a9de04-61e4-4f60-ad32-f2ad65257135" width="100%" alt="Register Page"/>
       <br/><b>📝 Smart Registration — reCAPTCHA v2/v3 Protected</b>
     </td>
   </tr>
@@ -531,7 +531,7 @@ The application is split into three workspaces, styled with modern CSS layouts:
 
 ---
 
-> 📌 **And more features inside...** The source code is private. For a full demo, deep-dive walkthrough, or collaboration request — reach out via the contact section below.
+> 📌 **And more features inside...** The source code is private. For a full demo, deep-dive walkthrough, or collaboration request — please use the contact details below.
 
 ---
 
