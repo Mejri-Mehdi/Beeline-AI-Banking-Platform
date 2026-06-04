@@ -337,11 +337,11 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/3810b6f9-9934-4d24-b7e6-683c7784a9b8" width="100%" alt="Client Dashboard"/>
+      <img src="https://github.com/user-attachments/assets/9ca2a2f7-6353-4f1a-ba1f-fab397bcc402" width="100%" alt="Client Dashboard"/>
       <br/><b>🏠 Client Dashboard — Accounts, Finances & Upcoming Appointments</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/eb002cd0-4ef2-4caf-8c8e-adfd9a51cdd1" width="100%" alt="Client Offers"/>
+      <img src="https://github.com/user-attachments/assets/052a2e63-def8-4601-8457-0524a36c0aaa" width="100%" alt="Client Offers"/>
       <br/><b>🏦 Banking Offers Catalog — Filtered, Sorted & Interactive</b>
     </td>
   </tr>
@@ -354,11 +354,11 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/aedd8f14-0c26-4f57-bfc3-d3d0bc3ec335" width="100%" alt="AI Banking Chatbot"/>
+      <img src="https://github.com/user-attachments/assets/7cc86983-40af-4a15-b63a-35be1d3d113f" width="100%" alt="AI Banking Chatbot"/>
       <br/><b>🤖 AI Credit Simulator (Ollama · Mistral · Llama 3.2)</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/3a4711f5-747c-494a-821c-47abe1dc0de9" width="100%" alt="Live Offer Matching"/>
+      <img src="https://github.com/user-attachments/assets/a2393e44-81c8-459b-8dfa-706b8df360d8" width="100%" alt="Live Offer Matching"/>
       <br/><b>💡 Live Offer Matching & Credit Recommendations</b>
     </td>
   </tr>
@@ -371,21 +371,21 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/49c99bb9-4c9a-4a9d-b000-b7a76000e822" width="100%" alt="Loan Application Wizard"/>
+      <img src="https://github.com/user-attachments/assets/7c0ac6b9-31d2-4366-bfa0-e12e13fe1a3b" width="100%" alt="Loan Application Wizard"/>
       <br/><b>📋 Multi-Step Loan Application Wizard</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/887dd15c-acbb-4f07-b80d-5b03534e87e2" width="100%" alt="Document OCR Upload"/>
+      <img src="https://github.com/user-attachments/assets/8330c303-2855-4f2a-bd7b-3a9dd8058944" width="100%" alt="Document OCR Upload"/>
       <br/><b>🔍 Document Upload + AI OCR Verification (Groq Vision)</b>
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/c628445c-f9b0-43e3-a3dc-a81e4c387ea5" width="100%" alt="AI Credit Decision"/>
+      <img src="https://github.com/user-attachments/assets/277ea8fd-5c53-474d-9ce9-19d9bd76abda" width="100%" alt="AI Credit Decision"/>
       <br/><b>🧠 Explainable AI Credit Decision — Score + Justification</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/074b2288-b313-4ca3-9188-3d80589fe4ed" width="100%" alt="AI Decision History"/>
+      <img src="https://github.com/user-attachments/assets/9fa1005e-9c1f-4e54-b51b-b711ffa519fa" width="100%" alt="AI Decision History"/>
       <br/><b>📜 AI Decision History — Full Audit Trail</b>
     </td>
   </tr>
