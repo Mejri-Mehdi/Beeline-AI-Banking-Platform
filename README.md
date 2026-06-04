@@ -299,46 +299,6 @@ The application is split into three workspaces, styled with modern CSS layouts:
 
 ---
 
----
-
-## 🖼️ Screenshots
-
-> Screenshots from the live application across all three workspaces — Admin, Agent, and Client.
-
-<img width="1920" height="1200" alt="Screenshot (7)" src="https://github.com/user-attachments/assets/ff73e851-8357-470e-a77e-9715bc7d2032" />
-<img width="1920" height="1200" alt="Screenshot (8)" src="https://github.com/user-attachments/assets/a1986821-60e3-4308-ad5d-670514d97450" />
-<img width="1920" height="1200" alt="Screenshot (9)" src="https://github.com/user-attachments/assets/3620b5d3-25a3-4a4b-bdbc-62eed23ffd69" />
-<img width="1920" height="1200" alt="Screenshot (10)" src="https://github.com/user-attachments/assets/f85a7a78-5f4d-4799-ac7b-dd8e5ab83771" />
-<img width="1920" height="1200" alt="Screenshot (13)" src="https://github.com/user-attachments/assets/3810b6f9-9934-4d24-b7e6-683c7784a9b8" />
-<img width="1920" height="1200" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/eb002cd0-4ef2-4caf-8c8e-adfd9a51cdd1" />
-<img width="1920" height="1200" alt="Screenshot (16)" src="https://github.com/user-attachments/assets/aedd8f14-0c26-4f57-bfc3-d3d0bc3ec335" />
-<img width="1920" height="1200" alt="Screenshot (18)" src="https://github.com/user-attachments/assets/3a4711f5-747c-494a-821c-47abe1dc0de9" />
-<img width="1920" height="1200" alt="Screenshot (19)" src="https://github.com/user-attachments/assets/49c99bb9-4c9a-4a9d-b000-b7a76000e822" />
-<img width="1920" height="1200" alt="Screenshot (20)" src="https://github.com/user-attachments/assets/887dd15c-acbb-4f07-b80d-5b03534e87e2" />
-<img width="1920" height="1200" alt="Screenshot (22)" src="https://github.com/user-attachments/assets/c628445c-f9b0-43e3-a3dc-a81e4c387ea5" />
-<img width="1920" height="1200" alt="Screenshot (23)" src="https://github.com/user-attachments/assets/074b2288-b313-4ca3-9188-3d80589fe4ed" />
-<img width="1920" height="1200" alt="Screenshot (24)" src="https://github.com/user-attachments/assets/68fee77d-c15c-430e-970e-434d1330ca66" />
-<img width="1920" height="1200" alt="Screenshot (27)" src="https://github.com/user-attachments/assets/59d94dcc-39d6-4719-9b30-8f1d5fced420" />
-<img width="1920" height="1200" alt="Screenshot (28)" src="https://github.com/user-attachments/assets/fd46a3b4-456e-4a50-b6c5-12692132aadc" />
-<img width="1920" height="1200" alt="Screenshot (29)" src="https://github.com/user-attachments/assets/3e7d6bbc-1045-48de-ae2b-e8b4b79ed6cb" />
-<img width="1920" height="1200" alt="Screenshot (34)" src="https://github.com/user-attachments/assets/d0ef6ec3-2c6f-40f0-86d8-9b178e9fd40b" />
-<img width="1920" height="1200" alt="Screenshot (36)" src="https://github.com/user-attachments/assets/53ed25c5-5359-4205-b6c6-f13179d56ef4" />
-<img width="1920" height="1200" alt="Screenshot (37)" src="https://github.com/user-attachments/assets/f2a2aa3d-6e05-466b-bc11-74f5a5669db2" />
-<img width="1920" height="1200" alt="Screenshot (43)" src="https://github.com/user-attachments/assets/9b6971eb-5e0a-41d6-8d54-65b417d84725" />
-<img width="1920" height="1200" alt="Screenshot (49)" src="https://github.com/user-attachments/assets/4a484eff-08c9-437e-86d5-33f5580f81c8" />
-<img width="1920" height="1200" alt="Screenshot (51)" src="https://github.com/user-attachments/assets/417bd608-c413-4c75-ba50-f2be90fbd577" />
-
-
-**And More ...**
-
----
-
-> 📌 **Note:** Screenshots shown are from the live platform. Source code is private. To request a demo or code review, please use the contact details below.
-
----
-
-
-
 ## 🖼️ Screenshots
 
 > 🎯 Live screenshots from the production-ready platform — three full workspaces in action.
