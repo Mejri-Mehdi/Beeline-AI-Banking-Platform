@@ -316,7 +316,6 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <img width="1920" height="1200" alt="Screenshot (8)" src="https://github.com/user-attachments/assets/a1986821-60e3-4308-ad5d-670514d97450" />
 <img width="1920" height="1200" alt="Screenshot (9)" src="https://github.com/user-attachments/assets/3620b5d3-25a3-4a4b-bdbc-62eed23ffd69" />
 <img width="1920" height="1200" alt="Screenshot (10)" src="https://github.com/user-attachments/assets/f85a7a78-5f4d-4799-ac7b-dd8e5ab83771" />
-<img width="1920" height="1200" alt="Screenshot (11)" src="https://github.com/user-attachments/assets/1fd166b4-3e2f-4c54-a44d-32b248fae861" />
 <img width="1920" height="1200" alt="Screenshot (13)" src="https://github.com/user-attachments/assets/3810b6f9-9934-4d24-b7e6-683c7784a9b8" />
 <img width="1920" height="1200" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/eb002cd0-4ef2-4caf-8c8e-adfd9a51cdd1" />
 <img width="1920" height="1200" alt="Screenshot (16)" src="https://github.com/user-attachments/assets/aedd8f14-0c26-4f57-bfc3-d3d0bc3ec335" />
@@ -338,7 +337,7 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <img width="1920" height="1200" alt="Screenshot (51)" src="https://github.com/user-attachments/assets/417bd608-c413-4c75-ba50-f2be90fbd577" />
 
 
-** And More ...**
+**And More ...**
 
 ---
 
