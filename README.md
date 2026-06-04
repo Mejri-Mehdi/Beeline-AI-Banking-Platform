@@ -306,8 +306,11 @@ The application is split into three workspaces, styled with modern CSS layouts:
 > Screenshots from the live application across all three workspaces — Admin, Agent, and Client.
 
 <img width="1920" height="1200" alt="Screenshot (7)" src="https://github.com/user-attachments/assets/ff73e851-8357-470e-a77e-9715bc7d2032" />
+---
 <img width="1920" height="1200" alt="Screenshot (8)" src="https://github.com/user-attachments/assets/a1986821-60e3-4308-ad5d-670514d97450" />
+---
 <img width="1920" height="1200" alt="Screenshot (9)" src="https://github.com/user-attachments/assets/3620b5d3-25a3-4a4b-bdbc-62eed23ffd69" />
+---
 <img width="1920" height="1200" alt="Screenshot (10)" src="https://github.com/user-attachments/assets/f85a7a78-5f4d-4799-ac7b-dd8e5ab83771" />
 <img width="1920" height="1200" alt="Screenshot (13)" src="https://github.com/user-attachments/assets/3810b6f9-9934-4d24-b7e6-683c7784a9b8" />
 <img width="1920" height="1200" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/eb002cd0-4ef2-4caf-8c8e-adfd9a51cdd1" />
