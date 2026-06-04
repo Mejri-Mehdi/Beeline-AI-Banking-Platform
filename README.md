@@ -306,11 +306,8 @@ The application is split into three workspaces, styled with modern CSS layouts:
 > Screenshots from the live application across all three workspaces — Admin, Agent, and Client.
 
 <img width="1920" height="1200" alt="Screenshot (7)" src="https://github.com/user-attachments/assets/ff73e851-8357-470e-a77e-9715bc7d2032" />
----
 <img width="1920" height="1200" alt="Screenshot (8)" src="https://github.com/user-attachments/assets/a1986821-60e3-4308-ad5d-670514d97450" />
----
 <img width="1920" height="1200" alt="Screenshot (9)" src="https://github.com/user-attachments/assets/3620b5d3-25a3-4a4b-bdbc-62eed23ffd69" />
----
 <img width="1920" height="1200" alt="Screenshot (10)" src="https://github.com/user-attachments/assets/f85a7a78-5f4d-4799-ac7b-dd8e5ab83771" />
 <img width="1920" height="1200" alt="Screenshot (13)" src="https://github.com/user-attachments/assets/3810b6f9-9934-4d24-b7e6-683c7784a9b8" />
 <img width="1920" height="1200" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/eb002cd0-4ef2-4caf-8c8e-adfd9a51cdd1" />
@@ -337,6 +334,204 @@ The application is split into three workspaces, styled with modern CSS layouts:
 ---
 
 > 📌 **Note:** Screenshots shown are from the live platform. Source code is private. To request a demo or code review, please use the contact details below.
+
+---
+
+
+
+## 🖼️ Screenshots
+
+> 🎯 Live screenshots from the production-ready platform — three full workspaces in action.
+
+---
+
+### 🔐 Authentication & Smart Registration
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/ff73e851-8357-470e-a77e-9715bc7d2032" width="100%" alt="Login Page"/>
+      <br/><b>🔑 Login — Multi-Provider OAuth (Google · GitHub · Facebook)</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/a1986821-60e3-4308-ad5d-670514d97450" width="100%" alt="Register Page"/>
+      <br/><b>📝 Smart Registration — reCAPTCHA v2/v3 Protected</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/3620b5d3-25a3-4a4b-bdbc-62eed23ffd69" width="100%" alt="Voice Registration"/>
+      <br/><b>🎙️ Voice-Assisted Onboarding — NLP Registration Parsing</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/f85a7a78-5f4d-4799-ac7b-dd8e5ab83771" width="100%" alt="Email Activation"/>
+      <br/><b>📧 Email Activation & Account Verification Flow</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+### 🏠 Client Space — Dashboard & Banking Hub
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/3810b6f9-9934-4d24-b7e6-683c7784a9b8" width="100%" alt="Client Dashboard"/>
+      <br/><b>🏠 Client Dashboard — Accounts, Finances & Upcoming Appointments</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/eb002cd0-4ef2-4caf-8c8e-adfd9a51cdd1" width="100%" alt="Client Offers"/>
+      <br/><b>🏦 Banking Offers Catalog — Filtered, Sorted & Interactive</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+### 🤖 AI Credit Chatbot — Client Banking Assistant
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/aedd8f14-0c26-4f57-bfc3-d3d0bc3ec335" width="100%" alt="AI Banking Chatbot"/>
+      <br/><b>🤖 AI Credit Simulator (Ollama · Mistral · Llama 3.2)</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/3a4711f5-747c-494a-821c-47abe1dc0de9" width="100%" alt="Live Offer Matching"/>
+      <br/><b>💡 Live Offer Matching & Credit Recommendations</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+### 💸 Loan Financing — AI-Powered Credit Scoring
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/49c99bb9-4c9a-4a9d-b000-b7a76000e822" width="100%" alt="Loan Application Wizard"/>
+      <br/><b>📋 Multi-Step Loan Application Wizard</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/887dd15c-acbb-4f07-b80d-5b03534e87e2" width="100%" alt="Document OCR Upload"/>
+      <br/><b>🔍 Document Upload + AI OCR Verification (Groq Vision)</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/c628445c-f9b0-43e3-a3dc-a81e4c387ea5" width="100%" alt="AI Credit Decision"/>
+      <br/><b>🧠 Explainable AI Credit Decision — Score + Justification</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/074b2288-b313-4ca3-9188-3d80589fe4ed" width="100%" alt="AI Decision History"/>
+      <br/><b>📜 AI Decision History — Full Audit Trail</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+### 📅 Smart Appointment Scheduling — Rendez-Vous
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/68fee77d-c15c-430e-970e-434d1330ca66" width="100%" alt="Book Appointment"/>
+      <br/><b>📅 Intelligent Booking — Smart Counter (Guichet) Allocation</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/59d94dcc-39d6-4719-9b30-8f1d5fced420" width="100%" alt="QR Code Ticket"/>
+      <br/><b>🎫 QR Code Ticket Generation + ICS Calendar Export</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/fd46a3b4-456e-4a50-b6c5-12692132aadc" width="100%" alt="Visio Conference"/>
+      <br/><b>📹 Auto Jitsi Visio-Conference Room for Remote Appointments</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/3e7d6bbc-1045-48de-ae2b-e8b4b79ed6cb" width="100%" alt="My Appointments"/>
+      <br/><b>🗓️ My Appointments — Download PDF, Cancel & Modify</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+### 🧑‍💼 Agent Space — CRM Dashboard & AI Copilot
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/d0ef6ec3-2c6f-40f0-86d8-9b178e9fd40b" width="100%" alt="Agent CRM Dashboard"/>
+      <br/><b>🏢 Agent CRM Dashboard — Branch Stats & Today's Calendar</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/53ed25c5-5359-4205-b6c6-f13179d56ef4" width="100%" alt="FullCalendar"/>
+      <br/><b>📆 FullCalendar Integration — Real-Time Appointment Sync</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/f2a2aa3d-6e05-466b-bc11-74f5a5669db2" width="100%" alt="AI Copilot"/>
+      <br/><b>🤖 Gemini 2.5 Flash CRM Copilot — NLP Appointment Control</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/9b6971eb-5e0a-41d6-8d54-65b417d84725" width="100%" alt="Agent Financing"/>
+      <br/><b>💰 Financing Dashboard — Stacked Bar Charts & Status Overview</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+### 🧰 Agent Space — Offers, Services & Rate Management
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/4a484eff-08c9-437e-86d5-33f5580f81c8" width="100%" alt="Offers Manager"/>
+      <br/><b>🏷️ Offers CRUD — One-Click Duplication & Email Notifications</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/417bd608-c413-4c75-ba50-f2be90fbd577" width="100%" alt="External Rate Sync"/>
+      <br/><b>📈 External Interest Rate Sync — Live Market Data Integration</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+### 🛡️ Admin Space — Platform Governance & Analytics
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/3a4711f5-747c-494a-821c-47abe1dc0de9" width="100%" alt="Admin Dashboard"/>
+      <br/><b>🛡️ Admin Overview — User Distribution & Platform Metrics</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/aedd8f14-0c26-4f57-bfc3-d3d0bc3ec335" width="100%" alt="Admin Analytics"/>
+      <br/><b>📊 AI-Generated Analytics Report (Chart.js + Gemini Insights)</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/49c99bb9-4c9a-4a9d-b000-b7a76000e822" width="100%" alt="User Management"/>
+      <br/><b>👥 User Management — Approve · Block · Reject · Role Assignment</b>
+    </td>
+    <td align="center" width="50%">
+      <img src="https://github.com/user-attachments/assets/c628445c-f9b0-43e3-a3dc-a81e4c387ea5" width="100%" alt="Agent Queue"/>
+      <br/><b>📋 Agent Application Queue — Review & Onboard Banking Agents</b>
+    </td>
+  </tr>
+</table>
+
+---
+
+> 📌 **And more features inside...** The source code is private. For a full demo, deep-dive walkthrough, or collaboration request — reach out via the contact section below.
 
 ---
 
