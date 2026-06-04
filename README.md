@@ -1,4 +1,4 @@
-# 🚀 Beeline Banking Platform
+# 🏦 Beeline Banking Platform
 
 [![Symfony](https://img.shields.io/badge/Symfony-6.4%20LTS-black?style=for-the-badge&logo=symfony)](https://symfony.com/)
 [![PHP](https://img.shields.io/badge/PHP-%3E%3D%208.1-777BB4?style=for-the-badge&logo=php)](https://www.php.net/)
