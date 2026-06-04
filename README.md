@@ -398,21 +398,21 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/68fee77d-c15c-430e-970e-434d1330ca66" width="100%" alt="Book Appointment"/>
+      <img src="https://github.com/user-attachments/assets/8b28ca2d-2731-4099-b47b-4bb6d788d921" width="100%" alt="Book Appointment"/>
       <br/><b>📅 Intelligent Booking — Smart Counter (Guichet) Allocation</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/59d94dcc-39d6-4719-9b30-8f1d5fced420" width="100%" alt="QR Code Ticket"/>
+      <img src="https://github.com/user-attachments/assets/903484f6-8933-4c12-a434-bd53d6a0b174" width="100%" alt="QR Code Ticket"/>
       <br/><b>🎫 QR Code Ticket Generation + ICS Calendar Export</b>
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/fd46a3b4-456e-4a50-b6c5-12692132aadc" width="100%" alt="Visio Conference"/>
+      <img src="https://github.com/user-attachments/assets/269c9ef2-aa7d-442f-bfa6-a41c076b20e0" width="100%" alt="Visio Conference"/>
       <br/><b>📹 Auto Jitsi Visio-Conference Room for Remote Appointments</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/3e7d6bbc-1045-48de-ae2b-e8b4b79ed6cb" width="100%" alt="My Appointments"/>
+      <img src="https://github.com/user-attachments/assets/6ab0f32b-415c-45bb-b695-05ac22dd70ca" width="100%" alt="My Appointments"/>
       <br/><b>🗓️ My Appointments — Download PDF, Cancel & Modify</b>
     </td>
   </tr>
