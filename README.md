@@ -324,7 +324,7 @@ The application is split into three workspaces, styled with modern CSS layouts:
       <br/><b>🎙️ Voice-Assisted Onboarding — NLP Registration Parsing</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/f85a7a78-5f4d-4799-ac7b-dd8e5ab83771" width="100%" alt="Email Activation"/>
+      <img src="https://github.com/user-attachments/assets/a9e674a0-d3bc-4bb1-90d6-4b823cf3116a" width="100%" alt="Email Activation"/>
       <br/><b>📧 Email Activation & Account Verification Flow</b>
     </td>
   </tr>
