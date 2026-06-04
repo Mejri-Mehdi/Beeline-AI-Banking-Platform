@@ -37,7 +37,7 @@ graph TD
         OCR[OcrAnalyzerService]
         AI[FinancementAiService]
         Assistant[ClientBankAssistant]
-        PDF[FediaPdfGenerator - Browsershot]
+        PDF[PdfGenerator - Browsershot]
         Rate[TauxExterneService - ExchangeRate]
         Geo[NominatimGeocoder]
     end
@@ -312,7 +312,6 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <img width="1920" height="1200" alt="Screenshot (13)" src="https://github.com/user-attachments/assets/3810b6f9-9934-4d24-b7e6-683c7784a9b8" />
 <img width="1920" height="1200" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/eb002cd0-4ef2-4caf-8c8e-adfd9a51cdd1" />
 <img width="1920" height="1200" alt="Screenshot (16)" src="https://github.com/user-attachments/assets/aedd8f14-0c26-4f57-bfc3-d3d0bc3ec335" />
-<img width="1920" height="1200" alt="Screenshot (17)" src="https://github.com/user-attachments/assets/1f0b0ec7-b20e-4e01-a2c7-98a8fd0a8b0e" />
 <img width="1920" height="1200" alt="Screenshot (18)" src="https://github.com/user-attachments/assets/3a4711f5-747c-494a-821c-47abe1dc0de9" />
 <img width="1920" height="1200" alt="Screenshot (19)" src="https://github.com/user-attachments/assets/49c99bb9-4c9a-4a9d-b000-b7a76000e822" />
 <img width="1920" height="1200" alt="Screenshot (20)" src="https://github.com/user-attachments/assets/887dd15c-acbb-4f07-b80d-5b03534e87e2" />
