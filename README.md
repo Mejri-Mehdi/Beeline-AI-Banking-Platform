@@ -44,7 +44,7 @@ graph TD
         OCR[OcrAnalyzerService]
         AI[FinancementAiService]
         Assistant[ClientBankAssistant]
-        PDF[FediaPdfGenerator - Browsershot]
+        PDF[PdfGenerator - Browsershot]
         Rate[TauxExterneService - ExchangeRate]
         Geo[NominatimGeocoder]
     end
