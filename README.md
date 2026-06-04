@@ -425,22 +425,22 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/d0ef6ec3-2c6f-40f0-86d8-9b178e9fd40b" width="100%" alt="Agent CRM Dashboard"/>
+      <img src="https://github.com/user-attachments/assets/2082743b-5bb0-444f-9b3f-366ad7d56a2d" width="100%" alt="Agent CRM Dashboard"/>
       <br/><b>🏢 Agent CRM Dashboard — Branch Stats & Today's Calendar</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/53ed25c5-5359-4205-b6c6-f13179d56ef4" width="100%" alt="FullCalendar"/>
+      <img src="https://github.com/user-attachments/assets/64c246fe-8922-4d1d-b43f-58b2a0934d84" width="100%" alt="FullCalendar"/>
       <br/><b>📆 FullCalendar Integration — Real-Time Appointment Sync</b>
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/f2a2aa3d-6e05-466b-bc11-74f5a5669db2" width="100%" alt="AI Copilot"/>
+      <img src="https://github.com/user-attachments/assets/f829b9ef-87af-44bf-9d90-d4eee2bb3b2b" width="100%" alt="AI Copilot"/>
       <br/><b>🤖 Gemini 2.5 Flash CRM Copilot — NLP Appointment Control</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/9b6971eb-5e0a-41d6-8d54-65b417d84725" width="100%" alt="Agent Financing"/>
-      <br/><b>💰 Financing Dashboard — Stacked Bar Charts & Status Overview</b>
+      <img src="https://github.com/user-attachments/assets/6c4d40fc-522e-46e2-a26c-c5036e7c546d" width="100%" alt="Agent Financing"/>
+      <br/><b>💰 Smart service — With help and ai maintenace</b>
     </td>
   </tr>
 </table>
@@ -452,11 +452,11 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/4a484eff-08c9-437e-86d5-33f5580f81c8" width="100%" alt="Offers Manager"/>
+      <img src="https://github.com/user-attachments/assets/dc60891e-d825-4000-bebe-4409ae8e1d06" width="100%" alt="Offers Manager"/>
       <br/><b>🏷️ Offers CRUD — One-Click Duplication & Email Notifications</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/417bd608-c413-4c75-ba50-f2be90fbd577" width="100%" alt="External Rate Sync"/>
+      <img src="https://github.com/user-attachments/assets/1a737ddb-f6c5-49ef-93f9-098da5e788d5" width="100%" alt="External Rate Sync"/>
       <br/><b>📈 External Interest Rate Sync — Live Market Data Integration</b>
     </td>
   </tr>
@@ -469,21 +469,21 @@ The application is split into three workspaces, styled with modern CSS layouts:
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/3a4711f5-747c-494a-821c-47abe1dc0de9" width="100%" alt="Admin Dashboard"/>
+      <img src="https://github.com/user-attachments/assets/a9603030-760a-4119-9cff-8b5607d41979" width="100%" alt="Admin Dashboard"/>
       <br/><b>🛡️ Admin Overview — User Distribution & Platform Metrics</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/aedd8f14-0c26-4f57-bfc3-d3d0bc3ec335" width="100%" alt="Admin Analytics"/>
+      <img src="https://github.com/user-attachments/assets/fe05775f-b50b-4d52-bc5d-fd06eca3233b" width="100%" alt="Admin Analytics"/>
       <br/><b>📊 AI-Generated Analytics Report (Chart.js + Gemini Insights)</b>
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/49c99bb9-4c9a-4a9d-b000-b7a76000e822" width="100%" alt="User Management"/>
+      <img src="https://github.com/user-attachments/assets/c87b5083-2e39-4d00-910d-9e81c8f2e22b" width="100%" alt="User Management"/>
       <br/><b>👥 User Management — Approve · Block · Reject · Role Assignment</b>
     </td>
     <td align="center" width="50%">
-      <img src="https://github.com/user-attachments/assets/c628445c-f9b0-43e3-a3dc-a81e4c387ea5" width="100%" alt="Agent Queue"/>
+      <img src="https://github.com/user-attachments/assets/cbff4389-bd62-407b-9200-704c4537b2c4" width="100%" alt="Agent Queue"/>
       <br/><b>📋 Agent Application Queue — Review & Onboard Banking Agents</b>
     </td>
   </tr>
